@@ -14,13 +14,6 @@ public class MinStack {
 	
 	public MinStack() {}
 	
-	private static void main(String[] args) {
-		//测试样例
-		String[] array = {"MinStack","push","push","push","getMin","pop","top","getMin"};
-		//输出：[null,null,null,null,-3,null,0,-2]
-		
-	}
-	
 	public void push(int x) {
 		// 新建节点插入链表头部，作为 新的头结点，存储当前的元素值和最小值，并且指向之前的头结点
 		if(head == null) {

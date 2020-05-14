@@ -12,7 +12,6 @@ public class OtherMinStack {
 		dataStack = new Stack<>();
 		minStack = new Stack<>();
 	}
-	
 	public void push(int x) {
 		// 先将 x 压入数据栈
 		dataStack.push(x);
@@ -21,7 +20,6 @@ public class OtherMinStack {
 			minStack.push(x);
 		}
 	}
-	
 	public void pop() {
 		// 删除数据栈栈顶元素
 		int x = dataStack.pop();
@@ -30,7 +28,6 @@ public class OtherMinStack {
 			minStack.pop(); // pop() 方法，弹出栈顶元素，栈中不再有它
 		}
 	}
-	
 	public int top() {
 		// 返回栈顶元素
 		return dataStack.peek(); //peek()方法，返回栈顶元素， 栈中不移除它
