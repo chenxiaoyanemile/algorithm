@@ -41,5 +41,6 @@ public class DoubleList {
 	public int size() {
 		return size;
 	}
+	
 
 }

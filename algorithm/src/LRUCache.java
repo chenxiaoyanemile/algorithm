@@ -51,10 +51,8 @@ public class LRUCache {
 			// 直接添加到头部
 			cache.addFirst(x);
 			map.put(key, x);
-		}
-		
+		}	
 	}
-
 	
 }
 
