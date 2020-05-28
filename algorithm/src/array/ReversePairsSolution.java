@@ -7,7 +7,7 @@ package array;
  *
  */
 
-public class Solution1 {
+public class ReversePairsSolution {
 	
 	public static void mian(String[] args) {
 		

@@ -6,7 +6,7 @@ package array;
  * @author dell
  *
  */
-public class Solution2 {
+public class ReverseArraySolution {
 	
 	public int reversePairs(int[] nums) {
 		int len = nums.length;
