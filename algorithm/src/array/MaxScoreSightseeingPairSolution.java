@@ -1,6 +1,6 @@
 package array;
 /**
- * 最佳观光组合
+ * 最佳观光组合  2020-6-17
  * 给定正整数数组 A， A[i] 表示第 i 个观光景点的评分，并且两个景点 i 和 j 之间的距离为 j-i.
  * 一对景点（i < j） 组成的观光组合的得分为 (A[j] + A[j] + i - j):
  * 景点的评分之和减去它们两者之间的距离
@@ -16,7 +16,7 @@ public class MaxScoreSightseeingPairSolution {
 		
 	}
 	
-	//一般思路
+	//一般思路, O(n^2)
 	public static int maxScoreSightseeingPair(int[] A) {
 		int result = 0;
 		for(int i = 0; i < A.length; i++) {
@@ -27,7 +27,7 @@ public class MaxScoreSightseeingPairSolution {
 		return result;
 	}
 	
-	// 优化后的思路
+	// 优化后的思路 - 动态规划 DP 动态规划方程： dp[n] = MAX(dp[n-1],dp[n-2]+num), O(n)
 	public static int optMaxScoreSightseeingPair(int[] A) {
 		int result = 0;
 		for(int i = 1; i < A.length; i++) {
