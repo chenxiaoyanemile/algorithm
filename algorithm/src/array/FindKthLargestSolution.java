@@ -7,7 +7,7 @@ import sort.QuickSort;
 /**
  * 215. 数组中的 第 k 个最大元素
  * 在未排序的数组中找到第 k 个最大的元素。
- * @author dell
+ * @author Emily CH
  *
  */
 
