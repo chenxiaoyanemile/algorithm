@@ -1,6 +1,10 @@
 package divide;
 
 /**
+ * 分治法：
+ * 把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并
+ * 递归技术
+ *  实际上就是类似于数学归纳法，找到解决本问题的求解方程公式，然后根据方程公式设计递归程序
  * 493. 翻转对
  * 给定一个数组 nums ， 如果 i < j 且 nums[i] > 2*nums[j] ,我们就将 （i,j）称为一个重要翻转对。
  * 你需要返回给定数组中的重要翻转对的数量
@@ -17,10 +21,21 @@ package divide;
 public class ReversePairsSolution {
 	
 	public static void main(String[] args) {
-		int[] arrays = {1,3,2,3,1};
+		int[] arrays = {1,2,3,4,5,6,7,0};
 		System.out.println("输出结果：" + reversePairs(arrays));
 		
 	}
+	/**
+	 * 
+	 *  1) 该问题的规模缩小到一定的程度就可以容易地解决
+	 *  2) 该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。
+	 *  3) 利用该问题分解出的子问题的解可以合并为该问题的解；☆
+	 *  4) 该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子子问题。
+	 *  第三条是关键，只具备前面两条用动态规划或者贪心算法
+	 *  第四条是效率，如果不是独立的，则用动态规划
+	 * @param nums
+	 * @return
+	 */
 	
 	public static int reversePairs(int[] nums) {
 		int len = nums.length;
@@ -31,6 +46,26 @@ public class ReversePairsSolution {
 		
 		
 	}
+	/**
+	 * step1 分解：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题；
+	 * step2 解决：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题
+	 * step3 合并：将各个子问题的解合并为原问题的解。
+	 * 
+	 * 经典问题：
+	 * 1.二分搜索
+	 * 2.大整数乘法
+	 * 3. strassen 矩阵乘法
+	 * 4. 棋盘覆盖
+	 * 5.合并排序
+	 * 6.快速排序
+	 * 7.线性时间选择
+	 * 8.最接近点对问题
+	 * 9.循环赛日程表
+	 * @param array
+	 * @param start
+	 * @param end
+	 * @return
+	 */
 	
 	public static int mergeSort(int[] array, int start, int end) {
 		if(start == end) return 0;
@@ -45,8 +80,8 @@ public class ReversePairsSolution {
 			if(array[i] > array[j]) {
 				copy[copy_index --] = array[i--];
 				count += j - mid;
-				if(count > 100000007) {
-					count %= 100000007;
+				if(count > 1000000007) {
+					count %= 1000000007;
 				}
 			}else{
 				copy[copy_index --] = array[j--];
@@ -62,7 +97,7 @@ public class ReversePairsSolution {
 		while(start <= end) {
 			array[start++] = copy[i++];
 		}
-		return (left_count + right_count + count)%100000007;
+		return (left_count + right_count + count)%1000000007;
 		
 	}
 
