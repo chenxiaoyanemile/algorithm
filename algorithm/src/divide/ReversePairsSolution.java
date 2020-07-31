@@ -22,7 +22,7 @@ public class ReversePairsSolution {
 	
 	public static void main(String[] args) {
 		int[] arrays = {1,2,3,4,5,6,7,0};
-		System.out.println("输出结果：" + reversePairs(arrays));
+		System.out.println("输出结果：" + optReversePairs(arrays));
 		
 	}
 	/**
@@ -100,5 +100,26 @@ public class ReversePairsSolution {
 		return (left_count + right_count + count)%1000000007;
 		
 	}
+	
+    public static int optReversePairs(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        return optMergeSort(nums, 0, nums.length - 1);
+    }
+    private static int optMergeSort(int[] nums, int l, int r) {
+        if (l >= r) return 0;
+        int mid = l + (r - l)/2;
+        int count = mergeSort(nums, l, mid) + mergeSort(nums, mid + 1, r);
+        int[] cache = new int[r - l + 1];
+        int i = l, t = l, c = 0;
+        for (int j = mid + 1; j <= r; j++, c++) {
+            while (i <= mid && nums[i] <= 2 * (long)nums[j]) i++;
+            while (t <= mid && nums[t] < nums[j]) cache[c++] = nums[t++];
+            cache[c] = nums[j];
+            count += mid - i + 1;
+        }
+        while (t <= mid) cache[c++] = nums[t++];
+        System.arraycopy(cache, 0, nums, l, r - l + 1);
+        return count;
+    }
 
 }
