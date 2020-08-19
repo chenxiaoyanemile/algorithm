@@ -11,6 +11,9 @@ package divide;
 public class MaxCoinSolution {
 	
 	public static void main(String[] args) {
+		int[] nums = {3,1,5,8};
+		System.out.println("结果输出：" + maxCoinDP(nums));
+		
 		
 	}
 	
@@ -68,8 +71,48 @@ public class MaxCoinSolution {
 			//回溯尝试其他戳法
 			nums[i] = temp;
 		}
+		
 	}
 	
+	/**
+	 * 动态规划
+	 * @param nums
+	 * @return
+	 */
+	public static int maxCoinDP(int[] nums){
+		// 避免空指针异常
+		if(nums == null) {
+			return 0;
+		}
+		// 创建虚拟边界
+		int length = nums.length;
+		int[] nums2 = new int[length+2];
+		System.arraycopy(nums, 0, nums2, 1, length);
+		nums2[0] = 1;
+		nums2[length+1] = 1;
+		length = nums2.length;
+		
+		//创建 dp 表
+		length = nums2.length;
+		int[][] dp = new int[length][length];
+		
+		// 开始 dp : i 为 begin, j 为 end ， k 为 i、j 区间划分子问题的边界
+		
+		for(int i = length-2; i > -1; i--) {
+			for(int j = i+2; j < length; j++) {
+				//维护一个最大值；如果 i、j 相邻，值为0
+				int max = 0;
+				for(int k = i+1;k < j; k++) {
+					int temp = dp[i][k] + dp[k][j]+nums2[i]*nums2[k]*nums2[j];
+					if(temp > max) {
+						max = temp;
+					}
+				}
+				dp[i][j] = max;
+			}
+		}
+		return dp[0][length-1];	
+	}
 	
 	
 	
