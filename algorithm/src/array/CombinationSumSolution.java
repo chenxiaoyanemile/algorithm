@@ -4,7 +4,12 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
-
+/**
+ * 39.组合总和
+ * candidates 中的数字可以无限制重复被选取；
+ * @author dell
+ *
+ */
 public class CombinationSumSolution {
 	
 	public static void main(String[] args) {
