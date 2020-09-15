@@ -1,4 +1,4 @@
-package Tree;
+package tree;
 
 //二叉树的定义
 

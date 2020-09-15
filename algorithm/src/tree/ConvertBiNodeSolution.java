@@ -1,4 +1,4 @@
-package Tree;
+package tree;
 /**
  * BiNode
  * 二叉树数据机构 TreeNode 可用来表示单向链表。
