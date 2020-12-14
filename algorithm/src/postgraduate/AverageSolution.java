@@ -12,8 +12,8 @@ public class AverageSolution {
 	
 	public double average(int[] salary) {
 		double sum = 0;
-		double maxValue = Integer.MAX_VALUE;
-		double minValue = Integer.MIN_VALUE;
+		double maxValue = Integer.MIN_VALUE;
+		double minValue = Integer.MAX_VALUE;
 		for(int num : salary) {
 			sum+=num;
 			maxValue = Math.max(maxValue, num);
