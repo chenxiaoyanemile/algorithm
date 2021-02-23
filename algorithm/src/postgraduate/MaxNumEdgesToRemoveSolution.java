@@ -22,6 +22,7 @@ public class MaxNumEdgesToRemoveSolution {
 		UnionFindCustomer ufb = new UnionFindCustomer(n);
 		
 		int ans = 0;
+		//节点编号改为 从 0 开始
 		for(int[] edge : edges) {
 			--edge[1];
 			--edge[2];
